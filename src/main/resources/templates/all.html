@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Bulletin Board</title>
+</head>
+<body bgcolor="#deb887">
+<div style="background-color: olivedrab; color: #ffffff">
+    <div align="right">
+        <form data-th-action="@{/search}">
+            <input style="background-color: beige" name="name" type="search" class="item-search"
+                   data-th-value="${name}">
+            <button type="submit" style="background-color: olive; color:#ffffff">Go</button>
+        </form>
+    </div>
+    <h1>Bulletin Board</h1>
+</div>
+
+<form data-th-action="@{/search}">
+    <div style="background-color: olivedrab; color:#ffffff; width: 25%">
+        Search by categories:
+        <label>
+            <select style="background-color: beige" name="category" type="search" data-th-value="${category}">
+                <option name="message">message</option><!--Подумать над дефолтным параметром поиска-->
+                <option name="ad">ad</option>
+                <option name="wanted">wanted</option>
+                <option name="advertisement">advertisement</option>
+                <option name="need a help">need a help</option>
+                <option name="other">other</option>
+            </select>
+            <button type="submit" style="background-color: olive; color:#ffffff">Go</button>
+        </label>
+    </div>
+</form>
+
+<fieldset style="background-color: beige; width: 25%">
+    <legend>All Bulletins</legend>
+    <div align="right">
+        <a data-th-href="@{/0/edit}">
+            <button style="background-color: olivedrab; color:#ffffff">Add</button>
+        </a>
+    </div>
+    <ul>
+        <li data-th-each="item : ${items}" class="item">
+            <a data-th-href="@{/{id}(id=${item.id})}">
+                <h2>[[${item.name}]]</h2>
+            </a>
+        </li>
+    </ul>
+    <p data-th-if="${items.size() == 0}" class="no-items">No Notice to display</p>
+</fieldset>
+
+</body>
+</html>

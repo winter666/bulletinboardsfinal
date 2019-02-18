@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body bgcolor="#deb887">
+<div style="background-color: olivedrab; color: #ffffff; height: 150%" align="center">
+<h2>[[${item.name}]]</h2>
+</div>
+<div style="background-color: olivedrab; color: burlywood; width: 25%">
+<p>Category: [[${item.category}]]</p>
+</div>
+<div style="background-color: beige; width: 50%">
+    <h1>[[${item.content}]]</h1>
+
+</div>
+<hr style="color: olivedrab"/>
+<p>[[${item.email}]]</p>
+<p>[[${item.number}]]</p>
+
+<a data-th-href="@{/{id}/edit(id=${item.id})}"><button style="background-color: olivedrab; color: #ffffff;">Edit</button></a>
+<a data-th-href="@{/{id}/remove(id=${item.id})}"><button style="background-color: olivedrab; color: #ffffff;">Remove</button></a>
+<hr width="15%" align="left"/>
+<!--Подумать над Комментариями-->
+
+</body>
+</html>
